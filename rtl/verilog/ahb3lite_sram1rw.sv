@@ -222,16 +222,16 @@ module ahb3lite_sram1rw #(
     .TECHNOLOGY ( TECHNOLOGY ),
     .INIT_FILE  ( INIT_FILE  ) )
   ram_inst (
-    .rstn  ( HRESETn              ),
-    .clk   ( HCLK                 ),
+    .rst_ni   ( HRESETn              ),
+    .clk_i    ( HCLK                 ),
 
-    .waddr ( waddr[MEM_ABITS_LSB +: MEM_ABITS] ),
-    .we    ( we                   ),
-    .be    ( be                   ),
-    .din   ( HWDATA               ),
+    .waddr_i  ( waddr[MEM_ABITS_LSB +: MEM_ABITS] ),
+    .we_i     ( we                   ),
+    .be_i     ( be                   ),
+    .din_i    ( HWDATA               ),
 
-    .raddr ( HADDR[MEM_ABITS_LSB +: MEM_ABITS] ),
-    .dout  ( dout                 )
+    .raddr_i  ( HADDR[MEM_ABITS_LSB +: MEM_ABITS] ),
+    .dout_o   ( dout                 )
   );
 
   //AHB bus response
